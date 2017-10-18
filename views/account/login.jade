@@ -1,0 +1,15 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    h1 #{title}
+    form(role="form" method="post" action="login")
+      p Username
+      input(type="text" name="username" required)
+      p Password
+      input(type="password" name= "password" required)
+      button(type="submit") Entrar
+    a(href='/user/facebook', class='btn btn-block btn-social btn-facebook') Login with Facebook
+    div(class="push")
+  include ../includes/footer

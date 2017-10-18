@@ -1,0 +1,22 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group vertical-space")
+        div(class="all-100")
+          h1 #{title}
+        div(class="all-100")
+          div(class="all-50")
+            form(role="form" method="post" action="#{userID}")
+              p El nombre usuario actual es #{username}.
+              input(type="text" name="username")
+              p La cuenta de correo actual es #{emailAccount}
+              input(type="email" name="emailAccount" required)
+              p Cambiar Clave de acceso.
+              input(type="password" name="password" )
+              button(type="submit") Actualizar
+          div(class="all-50")  
+    
+  include ../includes/footer

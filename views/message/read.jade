@@ -1,0 +1,15 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-100")
+        div(class="all-50")
+          h1 #{title}
+        div(class="all-50")
+          a(href="/message") Volver
+      div(class="all-100 horizontal-space")
+        p #{message.MessageContent}
+    div(class="push")  
+  include ../includes/footer

@@ -1,0 +1,96 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group")
+        div(class="all-100 vertical-space")
+          p(class="top-space extralarge") Últimos proyectos incorporados 
+          div(id="lastsCarousel" class="ink-carousel" data-pagination="#lastsCarousel")
+            ul(class="stage column-group half-gutters")
+              div(class="horizontal-space")
+              for project in listProjects  
+                li(class="slide xlarge-20 all-50 small-100 tiny-100")              
+                  img(class="quarter-bottom-space" src="userFiles/projectImage/#{project.ProjectFileNames[0]}")
+                  div(class="description")
+                    div(class="all-100")
+                      div(class="all-75")
+                        h4 #{project.ProjectName}
+                      if(user)
+                        - var isFav = false
+                        for fav in listFavs                        
+                          if(fav.favProjectId == project.id)
+                            - return isFav = true
+                        if(isFav == true)
+                          div(class="all-25")
+                            form(method="post" action="/fav/delete/#{project.id}")
+                              button( type="submit" class="ink-button green") unfav
+                        else
+                          div(class="all-25")
+                            form(method="post" action="/fav/#{project.id}")
+                              button( type="submit" class="ink-button green") fav
+                    div(class="all-100")
+                      div(class="all-20")
+                        a(href="/project/#{project.id}") ver
+                      div(class="all-80")
+                        for userOwner in listUsers
+                          if(userOwner.id == project.ProjectOwner)
+                            a(href="/user/#{userOwner.username}") #{userOwner.username}
+                      div(class="all-100")
+                      p #{project.ProjectDetails}
+                
+            nav(id="lastsCarousel" class="ink-navigation")
+              ul(class="pagination chevron black")
+      div(class="column-group")
+        div(class="all-100 vertical-space")
+          p(class="top-space extralarge") Timeline de usuarios
+          div(id="category2" class="ink-carousel" data-pagination="#category2")
+            ul(class="stage column-group half-gutters")
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+              li(class="slide xlarge-20 all-50 small-100 tiny-100")
+                img(class="quarter-bottom-space" src="images/splash.768x1004.png")
+                div(class="description")
+                  h4 title
+                  p description
+            nav(id="category2" class="ink-navigation")
+              ul(class="pagination chevron black")
+
+          //h1=title
+          //h1 #{title}
+      div(class="push")
+  include ../includes/footer

@@ -1,0 +1,60 @@
+div(class="archiersHeader")
+  div(class="ink-grid")
+    div(class="column-group")
+      div(class="all-25" )
+        a(href="/")
+          img(class="ink-image archierslogo" src="/images/archiersLogo.png")
+      div(class="all-75 vertical-space")
+        nav(class="ink-navigation extralarge")
+          div(class="column-group")
+            div(class="all-66")
+              form(class="ink-form")
+                div(class="column-group horizontal-gutters")
+                  div(class="control-group all-100 small-100 tiny-100")
+                    div(class="control append-button" role="search")
+                      span
+                        input(type="text" name="searchFilter" id="searchFilter")
+                      button(class="ink-button black") Buscar
+                      div(class="ink-dropdown" data-target="#filterOptions")
+                        button(class="ink-button") añadir filtro
+                        ul(id="filterOptions" class="dropdown-menu")
+                          li(class="heading")
+                            a(href="#") Usuarios
+                          li(class="heading")
+                            a(href="#") Proyectos
+                          li(class="heading")
+                            a(href="#") Todo
+
+            div(class="all-33 ")
+              ul(class="menu horizontal")
+                if (!user)
+                  li(class="heading")
+                    a(href="/user/login")
+                      button(class="ink-button black") Entrar
+                  li(class="heading")                   
+                    a(href="user/register")
+                      p(class="small") Usuario nuevo
+                  
+                if (user)
+                  li(class="heading")
+                    a(href="/user" class="headermenus slab") Mi Archizr
+                    ul(class="submenu slab")
+                      a(href="/project")
+                        p(class="small slab") Proyectos
+                      a(href="/message")
+                        p(class="small slab") Mensajes
+                      a(href="/follow")
+                        p(class="small slab") Seguimiento
+                      a(href="/fav")
+                        p(class="small slab") Favoritos
+                  
+                  li(class="heading")
+                    a(href="#" class="headermenus slab") Cuenta
+                    ul(class="submenu")
+                      li                    
+                        a(href="/user/edit/#{userID}")
+                          p(class="small slab") Editar información de perfíl
+                        a(href="/file")
+                          p(class="small slab") Administrar material
+                        a(href="/user/logout")
+                          p(class="small slab") Salir

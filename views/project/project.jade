@@ -1,0 +1,15 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group")
+        div(class="all-100 vertical-space")
+          div(class="all-50")
+            h1 #{project.ProjectName}
+          div(class="all-50")
+            form(method="post" action="/fav/#{project.id}")
+              button( type="submit" class="ink-button green") añadir a favoritos 
+      div(class="push")
+  include ../includes/footer

@@ -1,0 +1,27 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group vertical-space")
+        div(class="all-50")
+          a(href="project/create")
+            button(class="ink-button green") Crear proyecto
+      div(class="column-group vertical-space")
+        each project in projects
+          div(class="all-20 galleryImage")            
+            figure(class="ink-image")
+              figcaption(class="over-top dark" style="padding: 0px;")
+                div(class="all-80")
+                  p #{project.ProjectName}
+                div(class="all-10")
+                  a(href="/project/edit/#{project.id}")
+                    img(src="images/edit.png")
+                div(class="all-10")
+                  a(href="/project/delete/#{project.id}")
+                    img(src="images/delete.png")  
+              img(src="userFiles/projectImage/#{project.ProjectFileNames[0]}")
+          
+      div(class="push")          
+  include ../includes/footer

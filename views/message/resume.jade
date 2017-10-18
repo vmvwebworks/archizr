@@ -1,0 +1,45 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-100")
+        h1 #{title}
+        a(href="/message/new")
+          button(class="ink-button green") Nuevo Mensaje
+          
+    div(class="column-group vertical-space")
+      div(class="all-50")
+        h1 mensajes recibidos
+        div(class="all-100 vertical-space")
+          div(class="all-90 push-center")
+            table(class="ink-table alternating hover ")          
+              each recMessage in listRecMessages                
+                tbody
+                  tr
+                    td #{recMessage.MessageTitle}
+                    td
+                      a(href="/message/#{recMessage.id}")
+                        p ver
+                    td
+                      form(method="post" action="/message/deleteRec/#{recMessage.id}")
+                        button(class="ink-button red" type="submit") Eliminar Mensaje
+      div(class="all-50")
+        h1 mensajes enviados
+        div(class="all-100 vertical-space")
+          div(class="all-90 push-center")
+            table(class="ink-table alternating hover")          
+              each sentMessage in listSentMessages                
+                tbody
+                  tr
+                    td #{sentMessage.MessageTitle}
+                    td
+                      a(href="/message/#{sentMessage.id}")
+                        p ver
+                    td
+                      form(method="post" action="/message/deleteSent/#{sentMessage.id}")
+                        button(class="ink-button red" type="submit") Eliminar Mensaje
+                          
+    div(class="push")  
+  include ../includes/footer

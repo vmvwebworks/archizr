@@ -1,0 +1,31 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group vertical-space")
+        div(class="all-100")
+          h1 Seguimiento de usuarios
+        div(class="all-100")
+          div(class="all-50")              
+            div(class="horizontal-space")
+              h3 Te siguen
+              for followTag in listFollowUsers
+                for follower in listUsers
+                  if((followTag.followingUserID == user.id) && (followTag.fromFollowUserId == follower.id))    
+                    p #{follower.username}
+                  
+                                  
+          div(class="all-50")              
+            div(class="horizontal-space")
+              h3 Sigues
+              for followTag in listFollowUsers
+                for follower in listUsers
+                  if((followTag.fromFollowUserId == user.id) && (followTag.followingUserID == follower.id))
+                    p #{follower.username}
+            
+                  
+              
+    div(class="push")  
+  include ../includes/footer

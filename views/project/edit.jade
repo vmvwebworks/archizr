@@ -1,0 +1,32 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-50 push-center")
+        div(class="all-100")
+          h1 #{title}
+        div(class="all-100")
+          form(role="form" method="post" action="#{project.id}" enctype="multipart/form-data")
+            div(class="all-50")
+              h3 Cambiar nombre a #{project.ProjectName}
+              input(type="text" name="projectName" required)
+              p Cambiar detalles
+              textarea(name="details")
+              p Cambiar precio
+              input(type="number" name="ammount")
+              p Cambiar localización
+              input(type="text" name="localize")
+            div(class="all-50")
+              p Cambiar Imágen
+              input(type="file" name="image" multiple)
+              //p #{plane}
+              //input(type="file" name="plane")
+            div(class="all-100")
+              button(type="submit") Enviar
+            
+            
+            
+    div(class="push")
+  include ../includes/footer

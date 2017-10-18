@@ -1,0 +1,42 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-100")
+        h1 Favoritos
+      div(class="all-100 horizontal-space")
+        div(class="all-70 vertical-space")
+          h3 Tus favoritos
+          div(id="lastsCarousel" class="ink-carousel" data-pagination="#lastsCarousel")
+            ul(class="stage column-group half-gutters")
+              for fav in listFavs
+                for project in listProjects
+                  if((project.id == fav.favProjectId) && (user.id == fav.favUserId))
+                    li(class="slide xlarge-33 all-50 small-100 tiny-100")
+                      img(class="quarter-bottom-space" src="userFiles/projectImage/#{project.ProjectFileName}")
+                      div(class="description")
+                        div(class="all-100")
+                          div(class="all-70")
+                            h3 #{project.ProjectName}
+                            div(class="all-100")
+                              p #{project.ProjectDetails}
+                          div(class="all-30")
+                            form(method="post" action="/fav/delete/#{project.id}")
+                              button( type="submit" class="ink-button green") unfav
+                            for owner in listUsers
+                              if(owner.id == project.ProjectOwner)
+                                p #{owner.username}
+                            a(href="/project/#{project.id}") ver    
+        div(class="all-30 vertical-space")
+          h3 En sus favoritos
+          div(class="all-100")
+            for fav in listFavs
+              for project in listOwnProjects
+                for favUser in listUsers
+                  if((favUser.id == fav.favUserId) && (project.id == fav.favProjectId))  
+                    h5(class="ink-badge red") A #{favUser.username} le gusta #{project.ProjectName}
+            
+    div(class="push")  
+  include ../includes/footer

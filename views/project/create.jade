@@ -1,0 +1,35 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-50 push-center")
+        div(class="all-100")
+          h1 #{title}
+        div(class="all-100")
+          form(role="form" method="post" action="create" enctype="multipart/form-data")
+            div(class="all-50")
+              p #{projectName}
+              input(type="text" name="projectName" required)
+              p #{details}
+              textarea(name="details")
+              p #{ammount}
+              input(type="number" name="ammount")
+              p #{location}
+              input(type="text" name="localize")
+            div(class="all-50")
+              div(class="all-100 fileInput")
+                button(class="align-center dropButton all-100") Añadir archivos            
+                input(class="drop" type="file" multiple="multiple" id="dropZone" name="image")  
+              div(class="all-100" class="miniaturesBox")
+                figure(class="ink-image" id="miniatures")
+              //p #{plane}
+              //input(type="file" name="plane")
+            div(class="all-100")
+              button(class="ink-button green all-100" type="submit") Subir
+            
+            
+    script(type="text/javascript", src="/javascripts/drop.js")        
+    div(class="push")
+  include ../includes/footer

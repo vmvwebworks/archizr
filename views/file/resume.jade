@@ -1,0 +1,42 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-100")
+        h1 #{title}  
+      div(class="all-100")
+        div(class="all-60")
+          div(class="horizontal-space")
+            h3 Imágenes  
+            div(class="all-40")            
+              form(role="form" method="post" action="file" enctype="multipart/form-data" class="ink-form")
+                div(class="all-100 fileInput")
+                  button(class="align-center dropButton all-100") Añadir archivos            
+                  input(class="drop" type="file" multiple="multiple" id="dropZone" name="image")
+                div(class="vertical-space all-100")
+                  button(class="ink-button green all-100" type="submit") Subir
+            div(class="all-60" class="miniaturesBox")
+              figure(class="ink-image" id="miniatures")
+            div(class="all-100")
+              div(class="ink-lazyload" data-delta="-60" data-placeholder="/images/Preloader.gif" data-loaded-class="loaded")
+                for image in listFiles
+                  div(class="all-25 miniature")
+                    figure(class="ink-image")
+                      img(class="lazyload-item" data-src="/userFiles/projectImage/#{image.FileName}")
+                      figcaption(class="over-top") 
+                        div(class="all-90")
+                          form(method="post" action="/file/delete/#{image.id}")
+                            button(type="submit") borrar
+                            //img(src="images/delete.png")
+        div(class="all-40")
+          div(class="horizontal-space")
+            h3 Documentos 
+            div(class="ink-lazyload" data-delta="-60" data-placeholder="/images/Preloader.gif" data-loaded-class="loaded")
+              img(class="lazyload-item" data-src="/images/pdf.png" style="max-width:140px;")
+    script(type="text/javascript", src="/javascripts/drop.js")
+        
+    div(class="push")
+    
+  include ../includes/footer

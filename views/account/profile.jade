@@ -1,0 +1,41 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group vertical-space")
+        div(class="all-100")
+          - console.log("console.log en vistas y listFollows: "+ listFollows);
+          - console.log("console.log en vistas y watchUser: "+ watchUser);
+          - console.log("console.log en vistas y listProjects"+ listProjects);
+          h1 #{title}
+          if(user)
+            - var isFollow = false
+            for follow in listFollows
+              if(follow.fromFollowUserId == user.id)
+                - return isFollow = true
+            if(isFollow == true)
+              form(method="post" action="/follow/delete/#{watchUser.id}")
+                button(type="submit" class="ink-button green") dejar de seguir
+            else
+              form(method="post" action="/follow/#{watchUser.id}")
+                button(type="submit" class="ink-button green") seguir
+        div(class="all-100")
+          div(class="all-50")
+            h3 #{watchUser.username}
+            p #{watchUser.emailAccount}
+          div(class="all-50")
+            button(class="ink-button grey") send message
+        div(class="all-100")          
+          div(class="all-100")
+            div(class="all-80")
+              for project in listProjects
+                div(class="all-25")
+                  figure(class="ink-image bottom-space") 
+                    figcaption(class="over-top dark")
+                      p #{project.ProjectName} 
+                    img(src="/userFiles/projectImage/#{project.ProjectFileName}")
+                     
+    div(class="push") 
+  include ../includes/footer

@@ -1,0 +1,79 @@
+html, body{
+  height: 100%;
+  background-color: #ecf0f1;
+}
+.wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -120px;
+    overflow: auto;
+}
+.archiersHeader{
+  background-color: #e74c3c;
+  /*background-color: #000;*/
+
+
+}
+.archierslogo{
+  max-width: 148px;
+}
+.headermenus{
+  color: #D0D7DC;
+}
+.push, footer {
+    height: 120px;
+    margin-top: 0;
+}
+footer {
+    background: #2c3e50;
+    border: 0;
+}
+footer * {
+    line-height: inherit;
+}
+
+
+/*
+Elements
+*/
+.galleryImage{
+  max-height: 300px;
+  overflow: hidden;
+}
+.silver{
+  background: #bdc3c7;
+  color: #fff;
+}
+.fileInput{
+  position: relative;
+
+}
+.drop{
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.dropButton{
+  border: 5px dashed #7f8c8d;
+  border-radius: 1em;
+  background-color: #bdc3c7;
+  padding: 3em;
+}
+.miniaturesBox{
+  height: 250px;
+  overflow: hidden;
+}
+.miniature{
+  height: 100px;
+  overflow:hidden;
+}
+figure.ink-image{
+  border: 0px;
+}

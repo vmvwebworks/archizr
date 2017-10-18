@@ -1,0 +1,23 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="column-group vertical-space")
+      div(class="all-100")
+        h1 #{title}
+    div(class="column-group vertical-space")
+      div(class="all-100")
+        form(class="ink-form" role="form" method="post" action="new")
+          label título del mensaje
+          div(class="control")
+            input(type="text" name="messageTitle")
+          label contenido del mensaje
+          div(class="control")
+            textarea(name="messageContent")
+          label Usuario de destino
+          div(class="control")
+            input(type="text" name="messageDestination")
+          button(type="submit") Enviar mensaje
+    div(class="push")  
+  include ../includes/footer

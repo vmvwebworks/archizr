@@ -1,0 +1,96 @@
+extends ../includes/layout
+
+block content
+  div(class="wrap")
+    include ../includes/header
+    div(class="ink-grid")
+      div(class="column-group vertical-space")
+        div(class="all-100")
+          h2 Bienvenido #{username},
+          p 
+            em Estas en tu casa, bueno en realidad no, pero estas donde puedes encontrar a quien puede construir tu casa o a quien puedes construirle una :)
+          h4
+            strong A continuación tienes un resumén de la actividad reciente.
+        div(class="all-100")
+          div(class="all-25")
+            div(class="all-90 push-center")
+              nav(class="ink-navigation")
+                ul(class="menu vertical grey")
+                  li
+                    div(class="horizontal-space")
+                      a(href="/project") 
+                        h3 Projectos                    
+                      ul
+                        each project in listProjects
+                          li
+                            div(class="all-80")
+                              a(href="###") #{project.ProjectName}
+                            div(class="all-20")
+                              img(src="images/image.png" style="max-height: 60px;")
+          
+          div(class="all-25")
+              div(class="all-90 push-center")
+                nav(class="ink-navigation")
+                  ul(class="menu vertical grey")
+                    li
+                      div(class="horizontal-space")
+                        a(href="/project") 
+                          h3 Mensajes                    
+                        ul
+                          each message in listMessages
+                            li
+                              div(class="all-80")
+                                a(href="###") #{message.MessageTitle}
+                              div(class="all-20")
+                                img(src="images/image.png" style="max-height: 60px;")
+                                          
+          div(class="all-25")
+            div(class="all-90 push-center")
+              nav(class="ink-navigation")
+                ul(class="menu vertical grey" style="padding: 1em 0em 3em 0em")
+                  li
+                    div(class="horizontal-space")
+                      a(href="/follow") 
+                        h3 seguimiento                    
+                      ul
+                        li
+                          div(class="all-80")
+                            a(href="###") Nuevo siguiendo
+                          div(class="all-20")
+                            img(src="images/user.png" style="max-height: 60px;")
+                        li
+                          div(class="all-80")
+                            a(href="###") Nuevo siguiendo
+                          div(class="all-20")
+                            img(src="images/user.png" style="max-height: 60px;")
+                        li
+                          div(class="all-80")
+                            a(href="###") Nuevo siguiendo
+                          div(class="all-20")
+                            img(src="images/user.png" style="max-height: 60px;")
+          div(class="all-25")
+            div(class="all-90 push-center")
+              nav(class="ink-navigation")
+                ul(class="menu vertical grey" style="padding: 1em 0em 3em 0em")
+                  li
+                    div(class="horizontal-space")                    
+                      a(href="/fav") 
+                        h3 Favoritos
+                      ul
+                        li
+                          div(class="all-80")
+                            a(href="###") Nuevo favorito
+                          div(class="all-20")
+                            img(src="images/star.png" style="max-height: 60px;")
+                        li
+                          div(class="all-80")
+                            a(href="###") Nuevo favorito
+                          div(class="all-20")
+                            img(src="images/star.png" style="max-height: 60px;")
+                        li
+                          div(class="all-80")
+                            a(href="###") Nuevo favorito
+                          div(class="all-20")
+                            img(src="images/star.png" style="max-height: 60px;")
+    div(class="push") 
+  include ../includes/footer
